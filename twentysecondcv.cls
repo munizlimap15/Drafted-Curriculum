@@ -142,7 +142,7 @@
 \newcommand{\cvmail}[1]{\renewcommand{\cvmail}{#1}}
 \newcommand{\cvnumberphone}[1]{\renewcommand{\cvnumberphone}{#1}}
 \newcommand{\cvaddress}[1]{\renewcommand{\cvaddress}{#1}}
-%\newcommand{\cvsite}[1]{\renewcommand{\cvsite}{#1}}
+\newcommand{\cvsite}[1]{\renewcommand{\cvsite}{#1}}
 \newcommand{\aboutme}[1]{\renewcommand{\aboutme}{#1}}
 \newcommand{\profilepic}[1]{\renewcommand{\profilepic}{#1}}
 \newcommand{\cvname}[1]{\renewcommand{\cvname}{#1}}
@@ -221,13 +221,13 @@
               $} 
             & \cvnumberphone\\}
             
-      %\ifthenelse{\equal{\href{\cvsite}{\cvsite}}{}}{}{
-            %{$
-              %\begin{array}{l}
-              %\hspace{2.8mm} \huge \textnormal{\textcolor{test}{\faGlobe}}
-              %\end{array}
-              %$} 
-            %& \href{http://\cvsite}{\cvsite} \\}
+      \ifthenelse{\equal{\href{\cvsite}{\cvsite}}{}}{}{
+            {$
+              \begin{array}{l}
+              \hspace{2.8mm} \huge \textnormal{\textcolor{linkedin}{\faGlobe}}
+              \end{array}
+              $} 
+            & \href{https://\cvsite.github.io}{https://pedrolima.github.io/} \\}
       \ifthenelse{\equal{\cvmail}{}}{}{
             {$
               \begin{array}{l}
