@@ -24,6 +24,7 @@
 \RequirePackage{pgffor}
 \RequirePackage{marvosym}
 \RequirePackage{parskip}
+\usepackage{fontawesome5}
 
 \usepackage{enumitem}
 \setlist[itemize]{leftmargin=*}
@@ -227,7 +228,7 @@
               \hspace{2.8mm} \huge \textnormal{\textcolor{linkedin}{\faGlobe}}
               \end{array}
               $} 
-            & \href{https://\cvsite.github.io}{https://pedrolima.github.io/} \\}
+            & \href{https://munizlimap15.github.io/Pedrolima/}{\cvsite} \\} %https://munizlimap15.github.io/Pedrolima/
       \ifthenelse{\equal{\cvmail}{}}{}{
             {$
               \begin{array}{l}
@@ -379,8 +380,8 @@
 
 \usepackage{smartdiagram}
 \smartdiagramset{
-    bubble center node font = \footnotesize,
-    bubble node font = \footnotesize,
+    bubble center node font = \large,
+    bubble node font = \scriptsize,
     % specifies the minimum size of the bubble center node
     bubble center node size = 0.5cm,
     %  specifies the minimum size of the bubbles
