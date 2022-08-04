@@ -265,7 +265,7 @@
         
         %------------------------------------------------
         
-        \vspace{3mm}
+        %\vspace{3mm}
        
 	 {\large \textbf{Programming}} 
 
@@ -275,7 +275,7 @@
 
 		 \Languages	 
          
-        \vspace{3mm}
+        \vspace{1mm}
         \profilesection{Education}{3cm} 
         
         \education
