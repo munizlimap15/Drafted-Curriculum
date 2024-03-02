@@ -140,7 +140,7 @@
 % Define custom commands for CV info
 \newcommand{\cvdate}[1]{\renewcommand{\cvdate}{#1}}
 \newcommand{\cvlinkedin}[1]{\renewcommand{\cvlinkedin}{#1}}
-%\newcommand{\cvgithub}[1]{\renewcommand{\cvgithub}{#1}}
+\newcommand{\cvgithub}[1]{\renewcommand{\cvgithub}{#1}}
 \newcommand{\cvmail}[1]{\renewcommand{\cvmail}{#1}}
 \newcommand{\cvnumberphone}[1]{\renewcommand{\cvnumberphone}{#1}}
 \newcommand{\cvaddress}[1]{\renewcommand{\cvaddress}{#1}}
@@ -149,6 +149,10 @@
 \newcommand{\profilepic}[1]{\renewcommand{\profilepic}{#1}}
 \newcommand{\cvname}[1]{\renewcommand{\cvname}{#1}}
 \newcommand{\cvjobtitle}[1]{\renewcommand{\cvjobtitle}{#1}}
+\newcommand{\cvlocation}[1]{\renewcommand{\cvlocation}{#1}}
+\newcommand{\cvVISA}[1]{\renewcommand{\cvVISA}{#1}}
+
+\newcommand{\cvnation}[1]{\renewcommand{\cvnation}{#1}}
 
 % Command for printing the contact information icons
 \newcommand*\icon[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1pt, fill=mainblue,mainblue,text=white] (char) {#1};}}
@@ -159,26 +163,28 @@
 		\begin{tikzpicture}
         	%\node [above right] at (0, 4) {$0 \: LOC \: \arrow{3.2} \: 5000 \: LOC$};
 			\foreach [count=\i] \x/\y in {#1}{
-				\draw[fill=maingray,maingray] (0,\i) rectangle (6,\i+0.4);
-				\draw[fill=white,mainblue](0,\i) rectangle (\y,\i+0.4);
-				\node [above right] at (0,\i+0.35) {\x};
+				\draw[fill=maingray,maingray] (0,\i) rectangle (6,\i+0.2); % Changed \i+0.4 to \i+0.2 to make bars thinner
+				\draw[fill=white,mainblue](0,\i) rectangle (\y,\i+0.2); % Changed \i+0.4 to \i+0.2 to make bars thinner
+				\node [above right] at (0,\i+0.15) {\x}; % Adjusted \i+0.35 to \i+0.15 to align text with thinner bars
 			}
 		\end{tikzpicture}
 	}
 }
+
 % Command for printing skill progress bars
 \newcommand\Languages[1]{ 
 	\renewcommand{\Languages}{
 		\begin{tikzpicture}
         	%\node [above right] at (0, 4) {$0 \: LOC \: \arrow{3.2} \: 5000 \: LOC$};
 			\foreach [count=\i] \x/\y in {#1}{
-				\draw[fill=maingray,maingray] (0,\i) rectangle (6,\i+0.4);
-				\draw[fill=white,mainblue](0,\i) rectangle (\y,\i+0.4);
-				\node [above right] at (0,\i+0.35) {\x};
+				\draw[fill=maingray,maingray] (0,\i) rectangle (6,\i+0.2); % Changed \i+0.4 to \i+0.2
+				\draw[fill=white,mainblue](0,\i) rectangle (\y,\i+0.2); % Changed \i+0.4 to \i+0.2
+				\node [above right] at (0,\i+0.15) {\x}; % Adjusted \i+0.35 to \i+0.15 to align text with smaller bars
 			}
 		\end{tikzpicture}
 	}
 }
+
 
 \newcommand\education[1]{ 
 	\renewcommand{\education}{
@@ -204,21 +210,31 @@
         \vspace{4mm}
     {\Huge\color{black}\cvname}
     
-    \vspace{2mm}
+    \vspace{4mm}
 
     %------------------------------------------------
+    
     
     {\Large\color{black!80}\cvjobtitle}
+    \vspace{-1mm}\\
+
+    %------------------------------------------------
+    \vspace{-1mm}
+    {\small\color{black!100}\cvnation}\\ \\
+    \vspace{-1mm}
+    {\small\color{black!100}\cvlocation}\\ \\
+    \vspace{-1mm}
+    {\small\color{black!100}\cvVISA}
 
     %------------------------------------------------
     
-    \vspace{3mm}
+    \vspace{1mm}
     \renewcommand{\arraystretch}{2}
     \begin{tabular}{p{1cm} @{\hskip 0.5cm}p{5cm}}
       \ifthenelse{\equal{\cvnumberphone}{}}{}{
       		{$
               \begin{array}{l}
-              \hspace{4mm} \Huge \textnormal{\faMobile} 
+              \hspace{4mm} \Huge \textnormal{\Large\faMobile} 
               \end{array}
               $} 
             & \cvnumberphone\\}
@@ -226,14 +242,14 @@
       \ifthenelse{\equal{\href{\cvsite}{\cvsite}}{}}{}{
             {$
               \begin{array}{l}
-              \hspace{2.8mm} \huge \textnormal{\textcolor{linkedin}{\faGlobe}}
+              \hspace{2.8mm} \huge \textnormal{\textcolor{linkedin}{\Large\faGlobe}}
               \end{array}
               $} 
             & \href{https://munizlimap15.github.io/Pedrolima/}{\cvsite} \\} %https://munizlimap15.github.io/Pedrolima/
       \ifthenelse{\equal{\cvmail}{}}{}{
             {$
               \begin{array}{l}
-              \hspace{2.5mm} \huge \textnormal{\textcolor{yt}{\faEnvelopeO}}
+              \hspace{2.5mm} \huge \textnormal{\textcolor{yt}{\Large\faEnvelopeO}}
               \end{array}
               $} 
             & \href{mailto:\cvmail}{\cvmail} \\}
@@ -241,44 +257,44 @@
        \ifthenelse{\equal{\cvlinkedin}{}}{}{
             {$
               \begin{array}{l}
-              \hspace{3mm} \huge \textnormal{\textcolor{linkedin}{\faLinkedin}}
+              \hspace{3mm} \huge \textnormal{\textcolor{linkedin}{\Large\faLinkedin}}
               \end{array}
               $} & \href{https://www.linkedin.com\cvlinkedin}{\cvlinkedin} \\
             }  
-        %\ifthenelse{\equal{\cvgithub}{}}{}{
-            %{$
-              %\begin{array}{l}
-              %\hspace{3mm} \huge \textnormal{\faGithub}
-              %\end{array}
-              %$} & \href{https://www.github.com/\cvgithub}{\cvgithub} \\
-            %}   
+        \ifthenelse{\equal{\cvgithub}{}}{}{
+            {$
+              \begin{array}{l}
+              \hspace{3mm} \huge \textnormal{\Large\faGithub}
+              \end{array}
+              $} & \href{https://www.github.com/\cvgithub}{\cvgithub} \\
+            }   
             
     \end{tabular}
 
     %------------------------------------------------
     \vspace{1mm}
-    \profilesection{Technical Skills}{1.2cm}
+    \profilesection{Skills}{4.5cm}
     
-    {\large \textbf{Overview}}
+    %{\large \textbf{Overview}}
 
 	\skills
         
         %------------------------------------------------
         
-        %\vspace{3mm}
+        \vspace{5mm}
        
 	 {\large \textbf{Programming}} 
 
-		 \programming
+		 \programming \vspace{3mm}
 	
 	{\large \textbf{Languages}} 
 
 		 \Languages	 
          
-        \vspace{1mm}
-        \profilesection{Education}{3cm} 
+        %\vspace{1mm}
+        %\profilesection{Education}{3cm} 
         
-        \education
+        %\education
       
   \end{textblock}
 }
@@ -381,7 +397,7 @@
 
 \usepackage{smartdiagram}
 \smartdiagramset{
-    bubble center node font = \large,
+    bubble center node font = \normalsize,
     bubble node font = \scriptsize,
     % specifies the minimum size of the bubble center node
     bubble center node size = 0.5cm,
@@ -402,3 +418,5 @@
     bubble text opacity = 1,
 }
 
+\usepackage{tikz}
+\newcommand\mybox[2][]{\tikz[overlay]\node[fill=blue!20,inner sep=2pt, anchor=text, rectangle, rounded corners=1mm,#1] {#2};\phantom{#2}}
